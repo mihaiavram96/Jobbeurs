@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>Jobfair Registration - UCLL</title>
+
+    
+    <!-- GET YOUR OWN API KEY. Mine might not work forever. (key=AIzaSyDgfc_MP_R42VTcrVQG0jJcepwHMAGa7lE) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfc_MP_R42VTcrVQG0jJcepwHMAGa7lE"></script>
+    <script type="text/javascript" src="rectangle.js"></script>
+    <link type="text/css" rel="stylesheet" href="something.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+<!-- THE NAVIGATION BAR -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Jobfair Registration</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="#" id="btnCreateRect" type="button">Add new stall</a></li>
+    <li><a href="#" id="btnSaveConfig" type="button">Save config</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="container-fluid" id="map"></div>
+
+    <script>
+    initMap();
+    
+    // Button to Add Stall 
+     document.getElementById('btnCreateRect').onclick = function() 
+        {
+           createRectangle();
+        };
+    // Button to save coordinates and available status to rectangles.txt which is downloaded on button press
+    document.getElementById('btnSaveConfig').onclick = function()
+        {
+        var bigString = buildString();
+        download('rectangles.txt', bigString);
+        };
+    </script>
+  </body>
+</html>
